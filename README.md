@@ -22,3 +22,4 @@ A Demo compose app to demonstrate basic Android concepts using Kotlin that is re
 6. Network API calls with basic error handling
 7. Kotlin Flow (Not implemented yet)
 8. Multi-modular app approach (Not implemented yet)
+9. Unit and UI Testing using Junit and Espresso respectively (Not implemented yet)
