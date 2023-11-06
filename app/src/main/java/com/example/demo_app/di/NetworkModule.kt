@@ -1,6 +1,6 @@
 package com.example.demo_app.di
 
-import com.example.demo_app.network.NetworkInterface
+import com.example.demo_app.network.PostsService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,11 +14,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 object NetworkModule {
 
     @Provides
-    fun providesService(retrofit: Retrofit) : NetworkInterface = retrofit.create(NetworkInterface::class.java)
+    fun providesService(retrofit: Retrofit) : PostsService = retrofit.create(PostsService::class.java)
 
     @Provides
     fun providesRetrofit(): Retrofit = Retrofit.Builder()
-        .baseUrl("https://dummy.restapiexample.com/api/v1/")
+        .baseUrl("https://dummyjson.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 }

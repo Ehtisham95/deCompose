@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">demo_app</string>
+    <string name="form">demo_app, %s, %s</string>
 </resources>

@@ -3,19 +3,19 @@ package com.example.demo_app.ui.screens
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.demo_app.model.EmployeeData
-import com.example.demo_app.repository.EmployeeRepo
+import com.example.demo_app.model.Post
+import com.example.demo_app.repository.PostRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val repo: EmployeeRepo
+    private val repo: PostRepo
 ) : ViewModel() {
 
     data class HomeState(
-        val list: List<EmployeeData> = emptyList(),
+        val postsList: List<Post> = emptyList(),
         val generalError: String? = null
     )
 
@@ -29,9 +29,9 @@ class HomeViewModel @Inject constructor(
     }
 
     private suspend fun getEmployees() {
-        repo.getAllEmployees()
+        repo.getAllPosts()
             .onSuccess {
-                state.value = state.value.copy(list = it.employeeData, generalError = null)
+                state.value = state.value.copy(postsList = it.posts, generalError = null)
             }
             .onFailure {
                 state.value = state.value.copy(generalError = "Something went wrong!")
